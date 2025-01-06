@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({insideHome}) => {
   return (
     <nav className="flex bg-violet-600 fixed w-full p-4 text-white items-center">
       <Link to="/" className="text-2xl font-bold flex items-center">
         <i className="fa-solid fa-truck-fast me-2"></i> E Cart
       </Link>
       <ul className="flex-1 flex justify-end items-center">
-        <li className="list-none px-4">
+        { insideHome && 
+          <li className="list-none px-4">
           <input
             style={{ width: "300px" }}
             className="rounded p-2 text-black"
@@ -16,6 +17,7 @@ const Header = () => {
             type="text"
           />
         </li>
+        }
         <li className="list-none px-4 flex items-center">
           <Link to={'/wishlist'}>
               <i className="fa-solid fa-heart text-red-600 me-1"></i> Wishlist{' '}
